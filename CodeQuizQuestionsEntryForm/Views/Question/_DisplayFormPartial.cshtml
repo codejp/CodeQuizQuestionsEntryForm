@@ -7,7 +7,7 @@
         </dt>
 
         <dd>
-            @Html.FormatToHtml(Model.Body)
+            @Html.FormatToHtml(Model.Body, Model.BodyFormat)
         </dd>
 
         <dt>‰ñ“š‘I‘ðŽˆ</dt>
@@ -33,7 +33,7 @@
         </dt>
 
         <dd>
-            @Html.FormatToHtml(Model.Comment) &nbsp;
+            @Html.FormatToHtml(Model.Comment, Model.CommentFormat) &nbsp;
         </dd>
 
         <dt>

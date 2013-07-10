@@ -8,6 +8,11 @@ namespace CodeQuizQuestionsEntryForm.Models
 {
     public class CodeQuizQuestionsEntryFormDB : DbContext
     {
+        public CodeQuizQuestionsEntryFormDB()
+            : base("DefaultConnection")
+        {
+        }
+
         public DbSet<Question> Questions { get; set; }
     }
 }
