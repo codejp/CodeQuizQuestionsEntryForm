@@ -1,0 +1,20 @@
+﻿@model CodeQuizQuestionsEntryForm.Models.Question
+@{
+    ViewBag.Title = "クイズ問題を追加";
+}
+<hgroup>
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+</hgroup>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.Partial("_EntryFormPartial", Model)
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

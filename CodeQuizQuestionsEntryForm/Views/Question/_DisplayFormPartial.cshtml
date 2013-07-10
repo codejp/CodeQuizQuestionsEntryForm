@@ -1,0 +1,48 @@
+@model CodeQuizQuestionsEntryForm.Models.Question
+@using CodeQuizQuestionsEntryForm.Code
+<fieldset>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.FormatToHtml(Model.Body)
+        </dd>
+
+        <dt>‰ñ“š‘I‘ðŽˆ</dt>
+        <dd>
+            <ol>
+                @foreach (var option in Model.GetOptions())
+                {
+                    <li>@option</li>
+                }
+            </ol>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndexOfCorrectOption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndexOfCorrectOption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.FormatToHtml(Model.Comment) &nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateAt)
+        </dt>
+
+        <dd>
+            @Model.CreateAt.ToLocalTime().ToString("g")
+        </dd>
+
+    </dl>
+</fieldset>
