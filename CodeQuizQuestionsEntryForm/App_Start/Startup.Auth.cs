@@ -1,4 +1,8 @@
-﻿using Owin;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using Newtonsoft.Json;
+using Owin;
 
 namespace CodeQuizQuestionsEntryForm
 {
@@ -13,18 +17,24 @@ namespace CodeQuizQuestionsEntryForm
             // Enable the application to use a cookie to temporarily store information about a user logging in with a third party login provider
             app.UseExternalSignInCookie();
 
-            // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            var appSettings = ConfigurationManager.AppSettings;
+            Func<string, Dictionary<string, string>> getOAuthSetting = key =>
+                JsonConvert.DeserializeObject<Dictionary<string, string>>(appSettings[key]);
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            var oauthMicrosoftSetting = getOAuthSetting("OAuth.Microsoft");
+            app.UseMicrosoftAccountAuthentication(
+                oauthMicrosoftSetting["clientId"],
+                oauthMicrosoftSetting["clientSecret"]);
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            var oauthTwitterSetting = getOAuthSetting("OAuth.Twitter");
+            app.UseTwitterAuthentication(
+                oauthTwitterSetting["consumerKey"],
+                oauthTwitterSetting["consumerSecret"]);
+
+            var oauthFacebookSetting = getOAuthSetting("OAuth.facebook");
+            app.UseFacebookAuthentication(
+                oauthFacebookSetting["appId"],
+                oauthFacebookSetting["appSecret"]);
 
             app.UseGoogleAuthentication();
         }
