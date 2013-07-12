@@ -32,7 +32,7 @@ namespace CodeQuizQuestionsEntryForm.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return View(new Question());
         }
 
         [HttpPost]
