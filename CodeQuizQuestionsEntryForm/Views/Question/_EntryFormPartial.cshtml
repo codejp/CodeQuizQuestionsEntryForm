@@ -1,4 +1,4 @@
-@model CodeQuizQuestionsEntryForm.Models.Question
+﻿@model CodeQuizQuestionsEntryForm.Models.Question
 @using CodeQuizQuestionsEntryForm.Models
 <fieldset class="form-horizontal">
     <div class="control-group">
@@ -18,7 +18,7 @@
 
     <div class="control-group">
         <div class="controls">
-            <span class="label label-info">���񓚑I���� ... �摜�݂̂Ŏ������ꍇ�ł��A�u�}1�v�ȂǂƕK���e�L�X�g�����͂��Ă��������B</span>
+            <span class="label label-info">※回答選択肢 ... 画像のみで示される場合でも、「図1」などと必ずテキストも入力してください。</span>
         </div>
     </div>
 
@@ -38,10 +38,10 @@
                     <img id="@(modelName + "Image")" src="@option.OptionImage" class="option-image" />
                     <div class="image-actions">
                         <div class="btn-add-image">
-                            <a href="#" class="btn add-image">�摜��ݒ�</a>
+                            <a href="#" class="btn add-image">画像を設定</a>
                             <input type="file" id="@("_" + modelName + "ImageFile")" class="option-image-file" tabindex="-1"/>
                         </div>
-                        <a href="#" class="btn remove-image">�摜���폜</a>
+                        <a href="#" class="btn remove-image">画像を削除</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
 
     <div class="form-actions no-color">
         <input type="submit" value="OK" class="btn btn-primary" />
-        <a href="@Url.Action("Index")" class="btn">�L�����Z��</a>
+        <a href="@Url.Action("Index")" class="btn">キャンセル</a>
     </div>
 </fieldset>
 
