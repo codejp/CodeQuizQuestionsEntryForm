@@ -17,52 +17,36 @@
     </div>
 
     <div class="control-group">
-        @Html.LabelFor(model => model.Option1, new { @class = "control-label" })
         <div class="controls">
-            @Html.EditorFor(model => model.Option1)
-            @Html.ValidationMessageFor(model => model.Option1, null, new { @class = "help-inline" })
+            <span class="label label-info">※回答選択肢 ... 画像のみで示される場合でも、「図1」などと必ずテキストも入力してください。</span>
         </div>
     </div>
 
-    <div class="control-group">
-        @Html.LabelFor(model => model.Option2, new { @class = "control-label" })
-        <div class="controls">
-            @Html.EditorFor(model => model.Option2)
-            @Html.ValidationMessageFor(model => model.Option2, null, new { @class = "help-inline" })
+    @foreach (var option in Model.GetOptions(trim: false))
+    {
+        var modelName = "Option" + option.OptionNumber.ToString();
+        var imageModelName = "OptionImage" + option.OptionNumber.ToString();
+        <div class="control-group">
+            @Html.Label(modelName, new { @class = "control-label" })
+            <div class="controls">
+                <div>
+                    @Html.TextBox(modelName, option.Option)
+                    @Html.ValidationMessage(modelName, new { @class = "help-inline" })
+                    @Html.Hidden(imageModelName, option.OptionImage, new { @class = "option-image-hidden" })
+                </div>
+                <div class="@((string.IsNullOrEmpty(option.OptionImage) ? "no-image" : "") + " image-holder")">
+                    <img id="@(modelName + "Image")" src="@option.OptionImage" class="option-image" />
+                    <div class="image-actions">
+                        <div class="btn-add-image">
+                            <a href="#" class="btn add-image">画像を設定</a>
+                            <input type="file" id="@("_" + modelName + "ImageFile")" class="option-image-file" tabindex="-1"/>
+                        </div>
+                        <a href="#" class="btn remove-image">画像を削除</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="control-group">
-        @Html.LabelFor(model => model.Option3, new { @class = "control-label" })
-        <div class="controls">
-            @Html.EditorFor(model => model.Option3)
-            @Html.ValidationMessageFor(model => model.Option3, null, new { @class = "help-inline" })
-        </div>
-    </div>
-
-    <div class="control-group">
-        @Html.LabelFor(model => model.Option4, new { @class = "control-label" })
-        <div class="controls">
-            @Html.EditorFor(model => model.Option4)
-            @Html.ValidationMessageFor(model => model.Option4, null, new { @class = "help-inline" })
-        </div>
-    </div>
-
-    <div class="control-group">
-        @Html.LabelFor(model => model.Option5, new { @class = "control-label" })
-        <div class="controls">
-            @Html.EditorFor(model => model.Option5)
-            @Html.ValidationMessageFor(model => model.Option5, null, new { @class = "help-inline" })
-        </div>
-    </div>
-
-    <div class="control-group">
-        @Html.LabelFor(model => model.Option6, new { @class = "control-label" })
-        <div class="controls">
-            @Html.EditorFor(model => model.Option6)
-            @Html.ValidationMessageFor(model => model.Option6, null, new { @class = "help-inline" })
-        </div>
-    </div>
+    }
 
     <div class="control-group">
         @Html.LabelFor(model => model.IndexOfCorrectOption, new { @class = "control-label" })

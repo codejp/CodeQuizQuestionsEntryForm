@@ -176,6 +176,7 @@
     </Compile>
     <Compile Include="Models\CodeQuizQuestionsEntryFormDB.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\OptionViewModel.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\TextFormatType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -248,6 +249,7 @@
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\entryForm.js" />
     <Content Include="Views\Question\View1.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />

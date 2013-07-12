@@ -15,7 +15,10 @@
             <ol>
                 @foreach (var option in Model.GetOptions())
                 {
-                    <li>@option</li>
+                    <li>
+                        <div>@option.Option</div>
+                        <div><img src="@option.OptionImage" class="@(string.IsNullOrEmpty(option.OptionImage) ? "no-image" : "")"/></div>
+                    </li>
                 }
             </ol>
         </dd>
