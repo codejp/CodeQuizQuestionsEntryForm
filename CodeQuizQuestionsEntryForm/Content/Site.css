@@ -68,3 +68,11 @@ img.no-image,
 .image-actions {
     margin-top: 4px;
 }
+
+.hero-unit{
+    background-image:url(images/Thumbnail_13-0608.jpg);
+    background-position:16px 16px;
+    background-repeat:no-repeat;
+    height:512px;
+    padding-left:550px;
+}

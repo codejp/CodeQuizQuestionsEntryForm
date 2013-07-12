@@ -1,11 +1,13 @@
-﻿@{
+﻿@using CodeQuizQuestionsEntryForm
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="hero-unit">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <h1>@Localize.SiteTitle</h1>
+    <p class="lead">
+    </p>
     <p>
-        @Html.ActionLink("Questions", "Index", "Question", null, new { @class = "btn btn-primary btn-large" })
+        @Html.ActionLink("ここからクイズ問題を投稿!", "Index", "Question", null, new { @class = "btn btn-primary btn-large" })
     </p>
 </div>
