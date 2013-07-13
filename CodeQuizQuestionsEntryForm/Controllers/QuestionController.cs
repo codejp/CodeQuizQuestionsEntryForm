@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using CodeQuizQuestionsEntryForm.Models;
@@ -38,6 +39,8 @@ namespace CodeQuizQuestionsEntryForm.Controllers
         [HttpPost]
         public ActionResult Create(Question model)
         {
+            if (IsValidDataURL(model) == false) throw new ApplicationException("Invalid Data URL.");
+
             if(ModelState.IsValid == false)
             {
                 return View(model);
@@ -77,9 +80,19 @@ namespace CodeQuizQuestionsEntryForm.Controllers
                 prefix: null, 
                 includeProperties: null,
                 excludeProperties: new[] { "QuestionId", "OwnerUserId", "CreateAt" });
+
+            if (IsValidDataURL(question) == false) throw new ApplicationException("Invalid Data URL.");
+
             this.DB.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        private bool IsValidDataURL(Question model)
+        {
+            return model.GetOptions(trim: false)
+                .Select(opt => opt.OptionImage ?? "")
+                .All(url => Regex.IsMatch(url, @"(^data:image/\w+;\w+,[0-9a-zA-Z/+=]+$)|(^$)"));
         }
 
         [HttpGet]
