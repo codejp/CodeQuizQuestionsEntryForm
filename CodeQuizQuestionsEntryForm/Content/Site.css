@@ -35,6 +35,15 @@ input[type="checkbox"].input-validation-error {
 }
 
 /*  */
+.about-option-image,
+.disability-option-image-setup {
+    display: none;
+}
+.fileapi .about-option-image,
+.no-fileapi .disability-option-image-setup {
+    display: inline-block;
+}
+
 .image-holder {
     padding-top: 4px;
 }
@@ -49,6 +58,10 @@ img.no-image,
     display: inline-block;
     position: relative;
     overflow: hidden;
+}
+
+.no-fileapi .btn-add-image {
+    display: none;
 }
 
 .option-image-file {
@@ -69,10 +82,10 @@ img.no-image,
     margin-top: 4px;
 }
 
-.hero-unit{
-    background-image:url(images/Thumbnail_13-0608.jpg);
-    background-position:16px 16px;
-    background-repeat:no-repeat;
-    height:512px;
-    padding-left:550px;
+.hero-unit {
+    background-image: url(images/Thumbnail_13-0608.jpg);
+    background-position: 16px 16px;
+    background-repeat: no-repeat;
+    height: 512px;
+    padding-left: 550px;
 }
