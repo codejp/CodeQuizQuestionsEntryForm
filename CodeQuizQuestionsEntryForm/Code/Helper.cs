@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,6 +32,13 @@ namespace CodeQuizQuestionsEntryForm.Code
                     }
                 default: throw new NotImplementedException();
             }
+        }
+
+        public static IHtmlString ToLocalDateTimeString(this DateTime utc)
+        {
+            var timeZoneId = ConfigurationManager.AppSettings["TimeZone"];
+            var timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+            return new MvcHtmlString(TimeZoneInfo.ConvertTimeFromUtc(utc, timeZoneInfo).ToString("g"));
         }
     }
 }
