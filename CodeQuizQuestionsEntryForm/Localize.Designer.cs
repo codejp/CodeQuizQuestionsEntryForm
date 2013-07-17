@@ -68,5 +68,14 @@ namespace CodeQuizQuestionsEntryForm {
                 return ResourceManager.GetString("SiteTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Code2013 コードクイズコーナー -  クイズ問題絶賛募集中! #codejp に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TweetText {
+            get {
+                return ResourceManager.GetString("TweetText", resourceCulture);
+            }
+        }
     }
 }
