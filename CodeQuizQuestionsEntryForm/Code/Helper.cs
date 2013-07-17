@@ -40,5 +40,11 @@ namespace CodeQuizQuestionsEntryForm.Code
             var timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
             return new MvcHtmlString(TimeZoneInfo.ConvertTimeFromUtc(utc, timeZoneInfo).ToString("g"));
         }
+
+        public static string AppUrl(this UrlHelper urlHelper)
+        {
+            var request = urlHelper.RequestContext.HttpContext.Request;
+            return request.Url.GetLeftPart(UriPartial.Scheme | UriPartial.Authority);
+        }
     }
 }
