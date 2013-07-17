@@ -120,4 +120,7 @@
   <data name="SiteTitle" xml:space="preserve">
     <value>Code 2013 コードクイズ問題募集</value>
   </data>
+  <data name="TweetText" xml:space="preserve">
+    <value>Code2013 コードクイズコーナー -  クイズ問題絶賛募集中! #codejp</value>
+  </data>
 </root>
