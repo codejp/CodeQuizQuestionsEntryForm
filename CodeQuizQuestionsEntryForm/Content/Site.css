@@ -89,3 +89,8 @@ img.no-image,
     height: 512px;
     padding-left: 550px;
 }
+
+.user-name {
+    color: #999999;
+    padding: 10px 15px 10px 15px;
+}
