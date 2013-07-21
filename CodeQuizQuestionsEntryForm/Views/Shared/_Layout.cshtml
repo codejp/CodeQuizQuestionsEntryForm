@@ -42,12 +42,21 @@
         @RenderBody()
         <hr />
         <footer>
-            <div>
+            <section id="source">
+                <h4>source code</h4>
+                <p><a href="https://github.com/codejp/CodeQuizQuestionsEntryForm" target="_blank" class="github">https://github.com/codejp/CodeQuizQuestionsEntryForm</a></p>
+            </section>
+
+            <section id="hosting">
+                <h4>hosted by</h4>
+                <p><a href="https://appharbor.com/" target="_blank" class="appharbor">AppHarbor</a></p>
+            </section>
+            <section id="social">
                 <iframe allowtransparency="true" frameborder="0" scrolling="no"
                         src="@("https://platform.twitter.com/widgets/tweet_button.html?text=" + HttpUtility.UrlEncode(Localize.TweetText).Replace("+", "%20") + "&url=" + Url.Encode(Url.AppUrl()))"
                         style="width:100px; height:21px;"></iframe>
                 <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcodequizquestionsentryform.apphb.com%2F&amp;send=false&amp;layout=button_count&amp;width=80&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=581121635273738" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowtransparency="true"></iframe>
-            </div>
+            </section>
         </footer>
     </div>
 
