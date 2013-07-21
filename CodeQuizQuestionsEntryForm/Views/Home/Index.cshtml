@@ -1,13 +1,21 @@
 ﻿@using CodeQuizQuestionsEntryForm
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home";
 }
 
 <div class="hero-unit">
-    <h1>@Localize.SiteTitle</h1>
-    <p class="lead">
-    </p>
-    <p>
-        @Html.ActionLink("ここからクイズ問題を投稿!", "Index", "Question", null, new { @class = "btn btn-primary btn-large" })
-    </p>
+    <div class="text">
+        <h1>@Localize.SiteTitle</h1>
+        <p class="lead">暑い夏、涼しい北海道の温泉ホテルに1泊2日で、北海道の美味い宴会料理を喰らいつつ、コードを書きまくれ!</p>
+        <p class="description">言語・プラットフォーム問わないプログラマ向け泊まり込みイベント「<a href="http://codejapan.jp" target="_blank" title="Code 2013 in 定山渓 公式ホームページはこちら">Code 2013 in 定山渓</a>」の 1 コーナーである
+        コードクイズのクイズ問題を、イベント当日ぎりぎりまで絶賛募集中!<br/>
+        「このコードを実行すると下図のどのグラフが描画される?」<br />「このコードは何というプログラミング言語?」<br />などなど、難問・奇問どしどしお寄せください!
+        </p>
+        <p>
+            @Html.ActionLink("ここからクイズ問題を投稿!", "Index", "Question", null, new { @class = "btn btn-primary btn-large" })
+        </p>
+    </div>
+    <a href="http://codejapan.jp/" target="_blank" title="Code 2013 in 定山渓 公式ホームページはこちら">
+        <img src="~/Content/Images/Code2013Logo_300x300.png" alt="Code 2013 in 定山渓"/>
+    </a>
 </div>

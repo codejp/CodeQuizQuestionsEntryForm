@@ -83,12 +83,24 @@ img.no-image,
 }
 
 .hero-unit {
-    background-image: url(images/Thumbnail_13-0608.jpg);
-    background-position: 16px 16px;
-    background-repeat: no-repeat;
-    height: 512px;
-    padding-left: 550px;
+    display:inline-block;
+    padding:30px;
 }
+    .hero-unit .text {
+        display: inline-block;
+        float: right;
+        max-width: 680px;
+        margin-left: 20px;
+    }
+
+        .hero-unit .text .lead {
+            font-weight:bold;
+        }
+        .hero-unit .text .description {
+            font-size:80%;
+        }
+
+    
 
 .user-name {
     color: #999999;
@@ -113,6 +125,7 @@ footer section {
 
 footer a {
     text-decoration: none;
+    white-space:normal;
 }
 
     footer a:hover {
